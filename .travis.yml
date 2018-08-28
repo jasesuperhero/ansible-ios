@@ -19,5 +19,6 @@ install:
 
 script:
   # Basic role syntax check
+  - ansible-galaxy install -r requirements.yml
   - ansible-playbook tests/test.yml --syntax-check
   - ansible-playbook -v tests/test.yml -K
