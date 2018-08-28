@@ -1,40 +1,53 @@
 ---
 - hosts: localhost
   connection: local
-  remote_user: root
 
   vars:
-    homebrew_use_brewfile: true
-    homebrew_brewfile_dir: '~'
-    homebrew_repo: https://github.com/Homebrew/brew
-    homebrew_prefix: /usr/local
-    homebrew_install_path: "{{ homebrew_prefix }}/Homebrew"
-    homebrew_brew_bin_path: /usr/local/bin
-
-
     homebrew_installed_packages:
       - autoconf
       - bash-completion
+      - doxygen
+      - gettext
+      - gifsicle
       - git
-      - carthage
+      - go
       - gpg
-      - boost
-      - cmake
+      - hub
+      - httpie
+      - iperf
+      - libevent
+      - sqlite
+      - mcrypt
+      - nmap
+      - node
+      - nvm
       - ssh-copy-id
+      - readline
       - openssl
+      - pv
       - wget
-      - curl
-      - argon/mas/mas
-      - kylef/formulae/swiftenv
-
-    homebrew_taps:
-      - homebrew/core
-      - caskroom/cask
-      - homebrew/binary
-      - homebrew/dupes
-      - homebrew/versions
-
-    homebrew_cask_appdir: /Applications
+      - wrk
 
     homebrew_cask_apps:
-    - java
+      - chromedriver
+      - dropbox
+      - firefox
+      - google-chrome
+      - handbrake
+      - slack
+      - telegram-desktop
+      - visual-studio-code
+      - fork
+      - github
+      - transmit
+      - transmission
+      - evernote
+      - skitch
+      - vlc
+      - wireshark
+
+  tasks:
+    - include: ../tasks/ansible.yml
+
+  roles:
+    - geerlingguy.homebrew
