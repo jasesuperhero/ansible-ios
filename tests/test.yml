@@ -1,0 +1,40 @@
+---
+- hosts: localhost
+  connection: local
+  remote_user: root
+
+  vars:
+    homebrew_use_brewfile: true
+    homebrew_brewfile_dir: '~'
+    homebrew_repo: https://github.com/Homebrew/brew
+    homebrew_prefix: /usr/local
+    homebrew_install_path: "{{ homebrew_prefix }}/Homebrew"
+    homebrew_brew_bin_path: /usr/local/bin
+
+
+    homebrew_installed_packages:
+      - autoconf
+      - bash-completion
+      - git
+      - carthage
+      - gpg
+      - boost
+      - cmake
+      - ssh-copy-id
+      - openssl
+      - wget
+      - curl
+      - argon/mas/mas
+      - kylef/formulae/swiftenv
+
+    homebrew_taps:
+      - homebrew/core
+      - caskroom/cask
+      - homebrew/binary
+      - homebrew/dupes
+      - homebrew/versions
+
+    homebrew_cask_appdir: /Applications
+
+    homebrew_cask_apps:
+    - java
