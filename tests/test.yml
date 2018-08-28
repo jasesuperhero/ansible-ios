@@ -38,3 +38,7 @@
 
     homebrew_cask_apps:
     - java
+
+  tasks:
+    - include: ../tasks/macos-commandline-tools.yml
+    - include: ../tasks/homebrew.yml
