@@ -1,4 +1,5 @@
 ---
+
 zsh_user: "{{ ansible_user_id }}"
 zsh_user_group: "{% if ansible_os_family == 'Darwin' %}staff{% else %}{{ zsh_user }}{% endif %}"
 zsh_user_config: "~{{ zsh_user }}/.zshrc"
