@@ -2,13 +2,57 @@
 - hosts: localhost
   connection: local
 
-  vars_files:
-    - ../vars/zsh.yml
-    - ../vars/rvm.yml
+  vars:
+    rvm_rubies: ['ruby-2.5.1']
+    rvm_bundler_install: True
+    rvm_rvm_version: 'ruby-2.5.1'
 
-  tasks:
-    - include: ../tasks/ansible.yml
-    - include: ../tasks/zsh.yml
+    homebrew_installed_packages:
+      - autoconf
+      - bash-completion
+      - doxygen
+      - gettext
+      - gifsicle
+      - git
+      - go
+      - gpg
+      - hub
+      - httpie
+      - iperf
+      - libevent
+      - sqlite
+      - mcrypt
+      - nmap
+      - node
+      - nvm
+      - ssh-copy-id
+      - readline
+      - openssl
+      - pv
+      - wget
+      - wrk
+
+    homebrew_cask_apps:
+      - chromedriver
+      - dropbox
+      - firefox
+      - google-chrome
+      - handbrake
+      - slack
+      - telegram-desktop
+      - visual-studio-code
+      - fork
+      - github
+      - transmit
+      - transmission
+      - evernote
+      - skitch
+      - vlc
+      - wireshark
 
   roles:
-    - rvm_io.ruby
+    - ansible
+    - homebrew
+    - zsh
+    - rvm
+    - dotfiles
