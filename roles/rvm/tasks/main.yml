@@ -7,9 +7,12 @@
   when:
     - ansible_user_id != "travis"
 
-- name: Install Ruby and Gems
+- name: Install Ruby
   import_tasks: 'rubies.yml'
   become: yes
   become_user: '{{ rvm_user }}'
-  when:
-    - ansible_user_id != "travis"
+
+- name: Install Gems
+  import_tasks: 'gems.yml'
+  become: yes
+  become_user: '{{ rvm_user }}'

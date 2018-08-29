@@ -1,11 +1,12 @@
 ---
+
 - hosts: localhost
   connection: local
 
   vars:
     rvm_rubies: ['ruby-2.5.1']
     rvm_bundler_install: True
-    rvm_rvm_version: 'ruby-2.5.1'
+    rvm_default_ruby_version: 'ruby-2.5.1'
 
     homebrew_installed_packages:
       - autoconf
@@ -49,6 +50,12 @@
       - skitch
       - vlc
       - wireshark
+
+    gem_packages:
+      - name: fastlane
+        state: latest
+      - name: cocoapods
+        state: latest
 
   roles:
     - ansible

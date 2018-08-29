@@ -1,8 +1,13 @@
 ---
+
 - hosts: localhost
   connection: local
 
   vars:
+    rvm_rubies: ['ruby-2.5.1']
+    rvm_bundler_install: True
+    rvm_rvm_version: 'ruby-2.5.1'
+
     homebrew_installed_packages:
       - autoconf
       - bash-completion
@@ -46,19 +51,15 @@
       - vlc
       - wireshark
 
-
-    dotfiles_repo: "https://github.com/jasesuperhero/dotfiles.git"
-    dotfiles_files:
-      - .gitconfig
-      - .hyper.js
-      - .osx
-      - .vimrc
-      - .zshrc
-
-  tasks:
-    - include: tasks/ansible.yml
+    gem_packages:
+      - name: fastlane
+        state: latest
+      - name: cocoapods
+        state: latest
 
   roles:
-    - geerlingguy.homebrew
-    - geerlingguy.dotfiles
+    - ansible
+    - homebrew
     - zsh
+    - rvm
+    - dotfiles
