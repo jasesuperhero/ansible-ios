@@ -6,23 +6,58 @@
     homebrew_installed_packages:
       - autoconf
       - bash-completion
+      - doxygen
+      - gettext
+      - gifsicle
       - git
-      - carthage
+      - go
       - gpg
-      - boost
-      - cmake
+      - hub
+      - httpie
+      - iperf
+      - libevent
+      - sqlite
+      - mcrypt
+      - nmap
+      - node
+      - nvm
       - ssh-copy-id
+      - readline
       - openssl
+      - pv
       - wget
-      - curl
-      - argon/mas/mas
-      - kylef/formulae/swiftenv
+      - wrk
 
     homebrew_cask_apps:
+      - chromedriver
+      - dropbox
       - firefox
+      - google-chrome
+      - handbrake
+      - slack
+      - telegram-desktop
+      - visual-studio-code
+      - fork
+      - github
+      - transmit
+      - transmission
+      - evernote
+      - skitch
+      - vlc
+      - wireshark
+
+
+    dotfiles_repo: "https://github.com/jasesuperhero/dotfiles.git"
+    dotfiles_files:
+      - .gitconfig
+      - .hyper.js
+      - .osx
+      - .vimrc
+      - .zshrc
 
   tasks:
     - include: tasks/ansible.yml
 
   roles:
     - geerlingguy.homebrew
+    - geerlingguy.dotfiles
