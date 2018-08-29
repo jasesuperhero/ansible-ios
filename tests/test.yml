@@ -4,62 +4,68 @@
   connection: local
 
   vars:
-    rvm_rubies: ['ruby-2.5.1']
-    rvm_bundler_install: True
-    rvm_default_ruby_version: 'ruby-2.5.1'
+    # rvm_rubies: ['ruby-2.5.1']
+    # rvm_bundler_install: True
+    # rvm_default_ruby_version: 'ruby-2.5.1'
 
-    homebrew_installed_packages:
-      - autoconf
-      - bash-completion
-      - doxygen
-      - gettext
-      - gifsicle
-      - git
-      - go
-      - gpg
-      - hub
-      - httpie
-      - iperf
-      - libevent
-      - sqlite
-      - mcrypt
-      - nmap
-      - node
-      - nvm
-      - ssh-copy-id
-      - readline
-      - openssl
-      - pv
-      - wget
-      - wrk
+    # homebrew_installed_packages:
+    #   - autoconf
+    #   - bash-completion
+    #   - doxygen
+    #   - gettext
+    #   - gifsicle
+    #   - git
+    #   - go
+    #   - gpg
+    #   - hub
+    #   - httpie
+    #   - iperf
+    #   - libevent
+    #   - sqlite
+    #   - mcrypt
+    #   - nmap
+    #   - node
+    #   - nvm
+    #   - ssh-copy-id
+    #   - readline
+    #   - openssl
+    #   - pv
+    #   - wget
+    #   - wrk
 
-    homebrew_cask_apps:
-      - chromedriver
-      - dropbox
-      - firefox
-      - google-chrome
-      - handbrake
-      - slack
-      - telegram-desktop
-      - visual-studio-code
-      - fork
-      - github
-      - transmit
-      - transmission
-      - evernote
-      - skitch
-      - vlc
-      - wireshark
+    # homebrew_cask_apps:
+    #   - chromedriver
+    #   - dropbox
+    #   - firefox
+    #   - google-chrome
+    #   - handbrake
+    #   - slack
+    #   - telegram-desktop
+    #   - visual-studio-code
+    #   - fork
+    #   - github
+    #   - transmit
+    #   - transmission
+    #   - evernote
+    #   - skitch
+    #   - vlc
+    #   - wireshark
 
-    gem_packages:
-      - name: fastlane
-        state: latest
-      - name: cocoapods
-        state: latest
+    # gem_packages:
+    #   - name: fastlane
+    #     state: latest
+    #   - name: cocoapods
+    #     state: latest
+
+    mas_installed_apps:
+      - { id: 425264550, name: "Blackmagic Disk Speed Test (3.0)" }
+      - { id: 411643860, name: "DaisyDisk (4.3.2)" }
+      - { id: 498486288, name: "Quick Resizer (1.9)" }
 
   roles:
     - ansible
-    - homebrew
-    - zsh
-    - rvm
-    - dotfiles
+    # - homebrew
+    # - mas
+    # - zsh
+    # - rvm
+    # - dotfiles

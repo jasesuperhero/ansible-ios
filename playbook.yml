@@ -6,7 +6,7 @@
   vars:
     rvm_rubies: ['ruby-2.5.1']
     rvm_bundler_install: True
-    rvm_rvm_version: 'ruby-2.5.1'
+    rvm_default_ruby_version: 'ruby-2.5.1'
 
     homebrew_installed_packages:
       - autoconf
@@ -57,9 +57,20 @@
       - name: cocoapods
         state: latest
 
+    mas_installed_apps:
+      - { id: 425264550, name: "Blackmagic Disk Speed Test (3.0)" }
+      - { id: 411643860, name: "DaisyDisk (4.3.2)" }
+      - { id: 498486288, name: "Quick Resizer (1.9)" }
+      - { id: 497799835, name: "Xcode (9.4.1)" }
+      - { id: 425424353, name: "The Unarchiver (4.0.0)" }
+      - { id: 441258766, name: "Magnet (2.2.2)" }
+      - { id: 816239782, name: "joxi (3.0.42)" }
+      - { id: 1176895641, name: "Spark (2.0.9)" }
+
   roles:
     - ansible
     - homebrew
+    - mas
     - zsh
     - rvm
     - dotfiles
