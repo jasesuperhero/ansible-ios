@@ -23,7 +23,7 @@ rvm_install_flags: '--auto-dotfiles --user-install'
 rvm_ruby_install_flags:
 
 # Set the owner for the rvm directory
-rvm_user: 'ubuntu'
+rvm_user: 'root'
 
 # URL for the latest installer script
 rvm_rvm_latest_installer: 'https://raw.githubusercontent.com/rvm/rvm/master/binscripts/rvm-installer'
