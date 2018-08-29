@@ -2,6 +2,8 @@
 - hosts: localhost
   connection: local
 
+  vars_files:
+    - ../vars/zsh.yml
   vars:
     homebrew_installed_packages:
       - autoconf
@@ -46,8 +48,11 @@
       - vlc
       - wireshark
 
+    
+
   tasks:
     - include: ../tasks/ansible.yml
+    - include: ../tasks/zsh.yml
 
   roles:
     - geerlingguy.homebrew
