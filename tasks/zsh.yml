@@ -1,15 +1,14 @@
 ---
 
 - name: Install zsh, git, wget
-  package:
-    name: "{{ item }}"
+  homebrew:
+    name: "{{ item | default(item) }}"
+    install_options: "{{ item.install_options | default(omit) }}"
     state: present
   with_items:
     - zsh
     - git
     - wget
-  # brew don't work from root user on macOS
-  when: not (zsh_user == 'root' and ansible_os_family == 'Darwin')
 
 - name: Clone antigen {{ zsh_antigen_version }}
   git:
