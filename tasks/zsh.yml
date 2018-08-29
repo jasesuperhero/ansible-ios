@@ -1,0 +1,34 @@
+---
+
+- name: Install zsh, git, wget
+  homebrew:
+    name: "{{ item | default(item) }}"
+    install_options: "{{ item.install_options | default(omit) }}"
+    state: present
+  with_items:
+    - zsh
+    - git
+    - wget
+
+- name: Clone antigen {{ zsh_antigen_version }}
+  git:
+    repo: https://github.com/zsh-users/antigen.git
+    dest: "{{ zsh_antigen_path }}/antigen"
+    version: "{{ zsh_antigen_version }}"
+  become: yes
+  become_user: "{{ zsh_user }}"
+  register: zsh_register_antigen_clone
+
+- name: Set directory permissions
+  file:
+    name: "{{ zsh_antigen_path }}"
+    owner: "{{ zsh_user }}"
+    group: "{{ zsh_user_group }}"
+    recurse: yes
+  changed_when: false
+
+- name: Set zsh as default shell
+  user:
+    name: "{{ zsh_user }}"
+    shell: /bin/zsh
+  become: true

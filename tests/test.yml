@@ -2,52 +2,13 @@
 - hosts: localhost
   connection: local
 
-  vars:
-    homebrew_installed_packages:
-      - autoconf
-      - bash-completion
-      - doxygen
-      - gettext
-      - gifsicle
-      - git
-      - go
-      - gpg
-      - hub
-      - httpie
-      - iperf
-      - libevent
-      - sqlite
-      - mcrypt
-      - nmap
-      - node
-      - nvm
-      - ssh-copy-id
-      - readline
-      - openssl
-      - pv
-      - wget
-      - wrk
-
-    homebrew_cask_apps:
-      - chromedriver
-      - dropbox
-      - firefox
-      - google-chrome
-      - handbrake
-      - slack
-      - telegram-desktop
-      - visual-studio-code
-      - fork
-      - github
-      - transmit
-      - transmission
-      - evernote
-      - skitch
-      - vlc
-      - wireshark
+  vars_files:
+    - ../vars/zsh.yml
+    - ../vars/homebrew.yml
 
   tasks:
     - include: ../tasks/ansible.yml
+    - include: ../tasks/zsh.yml
 
   roles:
     - geerlingguy.homebrew
