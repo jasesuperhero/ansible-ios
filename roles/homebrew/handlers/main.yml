@@ -1,0 +1,7 @@
+---
+
+- name: Clear homebrew cache
+  file:
+    path: "{{ homebrew_cache_path.stdout | trim }}"
+    state: absent
+  when: 'homebrew_clear_cache | bool'

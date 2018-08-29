@@ -1,0 +1,52 @@
+---
+
+- name: Detect rvm binary
+  stat: path='{{ rvm_rvm }}'
+  register: rvm_binary
+
+- name: Detect rvm installer
+  stat: path='{{ rvm_temp_download_path }}/rvm-installer.sh'
+  register: rvm_installer
+
+- name: Detect current rvm version
+  command: '{{ rvm_rvm}} version'
+  changed_when: False
+  register: rvm_current_version
+  when: rvm_binary.stat.exists
+
+- name: Install rvm installer
+  get_url:
+    url: '{{ rvm_rvm_latest_installer }}'
+    dest: '{{ rvm_temp_download_path }}/rvm-installer.sh'
+    mode: 0755
+  when: not rvm_installer.stat.exists
+
+- name: Import GPG keys
+  command: 'gpg --keyserver {{ rvm_gpg_key_server }} --recv-keys {{ rvm_gpg_keys }}'
+  changed_when: False
+  check_mode: False
+  when: not ansible_check_mode and rvm_gpg_keys != ''
+  register: gpg_result
+  until: gpg_result.rc == 0
+  retries: 5
+  delay: 5
+  ignore_errors: True
+
+- name: Import GPG keys the other way
+  shell: curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+  when: not ansible_check_mode and rvm_gpg_keys != '' and gpg_result.rc != 0
+
+- name: Install rvm
+  command: >
+    {{ rvm_temp_download_path }}/rvm-installer.sh {{ rvm_rvm_version }}
+    --path {{ rvm_install_path }} {{ rvm_install_flags }}
+  when: not rvm_binary.stat.exists
+
+- name: Update rvm
+  shell: '{{ rvm_rvm }} get {{ rvm_rvm_version }} && {{ rvm_rvm }} reload'
+  changed_when: False
+  when: rvm_binary.stat.exists and rvm_rvm_check_for_updates
+
+- name: Configure rvm
+  command: '{{ rvm_rvm }} autolibs {{ rvm_autolib_mode }}'
+  when: not rvm_binary.stat.exists

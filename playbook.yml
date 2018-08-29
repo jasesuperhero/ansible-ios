@@ -61,3 +61,4 @@
   roles:
     - geerlingguy.homebrew
     - geerlingguy.dotfiles
+    - zsh

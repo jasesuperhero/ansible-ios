@@ -12,13 +12,11 @@ install:
   - sudo easy_install pip
   - sudo pip install ansible
   - ansible --version
-  - printf '[defaults]\nroles_path=../' >ansible.cfg
   - sudo mkdir -p /etc/ansible
   - sudo touch /etc/ansible/hosts
   - "echo -e '[local]\nlocalhost ansible_connection=local' | sudo tee -a /etc/ansible/hosts > /dev/null"
 
 script:
   # Basic role syntax check
-  - ansible-galaxy install -r requirements.yml
   - ansible-playbook tests/test.yml --syntax-check
   - ansible-playbook -v tests/test.yml -K
