@@ -67,6 +67,10 @@
       - { id: 816239782, name: "joxi (3.0.42)" }
       - { id: 1176895641, name: "Spark (2.0.9)" }
 
+    osx_script: "~/.osx --no-restart"
+
+    default_browser_name: firefox
+
   roles:
     - ansible
     - homebrew
@@ -74,3 +78,10 @@
     - zsh
     - rvm
     - dotfiles
+    - defaultbrowser
+    - fonts
+  
+  tasks:
+    - include_tasks: tasks/osx.yml
+      when: configure_osx
+      tags: ['osx']
