@@ -4,11 +4,11 @@
 
   vars_files:
     - ../vars/zsh.yml
-    - ../vars/homebrew.yml
+    - ../vars/rvm.yml
 
   tasks:
     - include: ../tasks/ansible.yml
     - include: ../tasks/zsh.yml
 
   roles:
-    - geerlingguy.homebrew
+    - rvm_io.ruby

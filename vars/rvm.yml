@@ -1,0 +1,5 @@
+---
+
+rvm1_rubies: ['ruby-2.5.1']
+rvm1_bundler_install: True
+rvm1_rvm_version: 'ruby-2.5.1'
