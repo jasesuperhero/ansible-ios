@@ -8,5 +8,10 @@ dotfiles_home: "~"
 dotfiles_files:
   - .bash_profile
   - .gitignore
+  - .gitconfig
   - .inputrc
   - .vimrc
+  - .aliases
+  - .editorconfig
+  - .exports
+  - .functions
