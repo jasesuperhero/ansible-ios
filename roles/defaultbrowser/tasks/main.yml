@@ -1,0 +1,11 @@
+---
+
+- name: Check out the defaultbrowser repository
+  homebrew: 
+    name: defaultbrowser 
+    state: absent
+
+- name: Set default browser
+  shell: defaultbrowser firefox
+  when: 
+    - ansible_user_id != "travis"

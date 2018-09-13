@@ -1,0 +1,6 @@
+---
+
+- name: Save Consolas font to ~/Library/Fonts
+  copy:
+    src: "{{ role_path }}/files/Consolas Nerd Font Complete Mono Windows Compatible.ttf"
+    dest: "{{ home_directory }}/Library/Fonts/Consolas Nerd Font Complete Mono Windows Compatible.ttf"
