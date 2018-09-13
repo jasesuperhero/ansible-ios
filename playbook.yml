@@ -32,6 +32,14 @@
       - pv
       - wget
       - wrk
+      - coreutils
+      - moreutils
+      - findutils
+      - gnupg
+      - neovim
+      - grep
+      - openssh
+      - screen
 
     homebrew_cask_apps:
       - chromedriver
