@@ -70,7 +70,6 @@
     osx_script: "~/.osx --no-restart"
 
     default_browser_name: firefox
-
   roles:
     - ansible
     - homebrew
@@ -78,6 +77,7 @@
     - zsh
     - rvm
     - dotfiles
+    - default-browser-and-fonts-support
     - defaultbrowser
     - fonts
   
