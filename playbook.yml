@@ -40,6 +40,7 @@
       - grep
       - openssh
       - screen
+      - defaultbrowser
 
     homebrew_cask_apps:
       - chromedriver
@@ -59,23 +60,14 @@
       - vlc
       - wireshark
 
-    gem_packages:
-      - name: fastlane
-        state: latest
-      - name: cocoapods
-        state: latest
-
     mas_installed_apps:
-      - { id: 425264550, name: "Blackmagic Disk Speed Test (3.0)" }
-      - { id: 411643860, name: "DaisyDisk (4.3.2)" }
-      - { id: 498486288, name: "Quick Resizer (1.9)" }
       - { id: 497799835, name: "Xcode (9.4.1)" }
       - { id: 425424353, name: "The Unarchiver (4.0.0)" }
       - { id: 441258766, name: "Magnet (2.2.2)" }
       - { id: 816239782, name: "joxi (3.0.42)" }
       - { id: 1176895641, name: "Spark (2.0.9)" }
 
-    osx_script: "~/.osx --no-restart"
+    osx_script: "~/Documents/dotfiles/.osx --no-restart"
 
     default_browser_name: firefox
   roles:
@@ -85,11 +77,8 @@
     - zsh
     - rvm
     - dotfiles
-    - default-browser-and-fonts-support
-    - defaultbrowser
-    - fonts
+    # - fonts
   
-  tasks:
-    - include_tasks: tasks/osx.yml
-      when: configure_osx
-      tags: ['osx']
+  # tasks:
+  #   - include_tasks: tasks/osx.yml
+  #     tags: ['osx']
