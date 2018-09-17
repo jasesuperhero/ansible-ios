@@ -13,3 +13,5 @@ dotfiles_files:
   - .editorconfig
   - .exports
   - .functions
+  - .zshrc
+  - .hyper.js
